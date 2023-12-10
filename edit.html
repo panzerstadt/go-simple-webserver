@@ -1,0 +1,14 @@
+{{if eq .Params.EditType "new"}}
+<h1>Creating new Wiki Page for {{.Page.Title}}</h1>
+{{else}}
+<h1>Editing {{.Page.Title}}</h1>
+{{end}}
+
+<form action="/save/{{.Page.Title}}" method="POST">
+    <div>
+        <textarea name="body" rows="20" cols="80">{{printf "%s" .Page.Body}}</textarea>
+    </div>
+    <div>
+        <input type="submit" value="Save">
+    </div>
+</form>
